@@ -1,0 +1,23 @@
+{
+  "name": "qa-automation",
+  "version": "1.0.0",
+  "description": "Desafio QA-Blu",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd ./quality_assurance && protractor conf.js",
+    "static_fix": "standard --fix",
+    "start_update_webdriver": "webdriver-manager update && webdriver-manager start --detach --seleniumPort=4444",
+    "simple_build": "cd ../protractor && npm install",
+    "run_local_test": "npm run simple_build && export TEST_ENV=local && npm run test",
+    "run_stop_webdriver": "kill -9 $(lsof -ti tcp:4444)"
+  },
+  "author": "Rodolfo Goncalves",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^5.1.0",
+    "cucumber-html-reporter": "^5.0.0",
+    "protractor": "^5.4.2",
+    "protractor-cucumber-framework": "^6.1.1"
+  }
+}

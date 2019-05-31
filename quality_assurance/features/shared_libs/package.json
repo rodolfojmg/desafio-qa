@@ -1,0 +1,16 @@
+{
+  "name": "shared_libs",
+  "version": "1.0.0",
+  "description": "pasta com arquivos compartilhados entre os projetos",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodolfo Goncalves",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "fs": "0.0.1-security",
+    "safe-buffer": "^5.1.1"
+  }
+}
