@@ -1,0 +1,76 @@
+[
+  {
+    "description": "  Para realizar controle de importações da minha loja\n  Eu como usuário do sistema\n  Quero realizar o controle das vendas relacionada a minha loja",
+    "keyword": "Funcionalidade",
+    "name": "Controle de listas de importações",
+    "line": 3,
+    "id": "controle-de-listas-de-importações",
+    "tags": [],
+    "uri": "features/list_imports.feature",
+    "elements": [
+      {
+        "id": "controle-de-listas-de-importações;consulta-do-valor-bruno-das-importações",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Consulta do valor bruno das importações",
+        "tags": [
+          {
+            "name": "@test",
+            "line": 8
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 10,
+            "name": "Que estou na tela de lista de importações",
+            "match": {
+              "location": "features/step_definitions/list_imports.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 11,
+            "name": "faço o calculo entre a coluna preço x qtde",
+            "match": {
+              "location": "features/step_definitions/list_imports.js:17"
+            },
+            "result": {
+              "status": "pending",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 12,
+            "name": "Visualizo que o valor total bruto das importações é \"190\"",
+            "match": {
+              "location": "features/step_definitions/list_imports.js:22"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
