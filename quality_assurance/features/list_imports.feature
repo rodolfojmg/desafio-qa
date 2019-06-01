@@ -6,9 +6,7 @@ Funcionalidade: Controle de listas de importações
   Quero realizar o controle das vendas relacionada a minha loja
 
   @test
-  Cenário: Teste
-    Dado Teste
-    Quando Teste
-    E Teste
-    Então Teste
-
+  Cenário: Consulta do valor bruno das importações
+    Dado Que estou na tela de lista de importações
+    Quando faço o calculo entre a coluna preço x qtde
+    Então Visualizo que o valor total bruto das importações é "190"
