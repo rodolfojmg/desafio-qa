@@ -5,8 +5,17 @@ Funcionalidade: Controle de listas de importações
   Eu como usuário do sistema
   Quero realizar o controle das vendas relacionada a minha loja
 
-  @test
-  Cenário: Consulta do valor bruno das importações
-    Dado Que estou na tela de lista de importações
-    Quando faço o calculo entre a coluna preço x qtde
-    Então Visualizo que o valor total bruto das importações é "190"
+  @testSuccess
+  Cenário: Acessar pagina de importações
+    Dado que estou na tela de lista de importações
+    Então visualizo que estou na página de importações
+
+  @testSuccess
+  Cenário: Visualizar importação realizada
+    Dado que estou na tela de lista de importações
+    Então visualizo que o "João Silva" realizou uma importação
+
+  @testError
+  Cenário: Não visualizar tabela de importações
+    Dado que estou na tela de lista de importações
+    Então não visualizo a tabla de importações
