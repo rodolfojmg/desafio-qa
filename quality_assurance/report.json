@@ -9,13 +9,13 @@
     "uri": "features/list_imports.feature",
     "elements": [
       {
-        "id": "controle-de-listas-de-importações;consulta-do-valor-bruno-das-importações",
+        "id": "controle-de-listas-de-importações;acessar-pagina-de-importações",
         "keyword": "Scenario",
         "line": 9,
-        "name": "Consulta do valor bruno das importações",
+        "name": "Acessar pagina de importações",
         "tags": [
           {
-            "name": "@test",
+            "name": "@testSuccess",
             "line": 8
           }
         ],
@@ -25,38 +25,130 @@
             "arguments": [],
             "keyword": "Dado ",
             "line": 10,
-            "name": "Que estou na tela de lista de importações",
+            "name": "que estou na tela de lista de importações",
             "match": {
               "location": "features/step_definitions/list_imports.js:12"
             },
             "result": {
               "status": "passed",
-              "duration": 3000000
+              "duration": 2000000
             }
           },
           {
             "arguments": [],
-            "keyword": "Quando ",
+            "keyword": "Então ",
             "line": 11,
-            "name": "faço o calculo entre a coluna preço x qtde",
+            "name": "visualizo que estou na página de importações",
             "match": {
               "location": "features/step_definitions/list_imports.js:17"
             },
             "result": {
-              "status": "pending",
+              "status": "passed",
+              "duration": 2067000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "controle-de-listas-de-importações;visualizar-importação-realizada",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Visualizar importação realizada",
+        "tags": [
+          {
+            "name": "@testSuccess",
+            "line": 13
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 15,
+            "name": "que estou na tela de lista de importações",
+            "match": {
+              "location": "features/step_definitions/list_imports.js:12"
+            },
+            "result": {
+              "status": "passed",
               "duration": 1000000
             }
           },
           {
             "arguments": [],
             "keyword": "Então ",
-            "line": 12,
-            "name": "Visualizo que o valor total bruto das importações é \"190\"",
+            "line": 16,
+            "name": "visualizo que o \"João Silva\" realizou uma importação",
             "match": {
-              "location": "features/step_definitions/list_imports.js:22"
+              "location": "features/step_definitions/list_imports.js:23"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 301000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "controle-de-listas-de-importações;não-visualizar-tabela-de-importações",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Não visualizar tabela de importações",
+        "tags": [
+          {
+            "name": "@testError",
+            "line": 18
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 20,
+            "name": "que estou na tela de lista de importações",
+            "match": {
+              "location": "features/step_definitions/list_imports.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 21,
+            "name": "não visualizo a tabla de importações",
+            "match": {
+              "location": "features/step_definitions/list_imports.js:29"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 247000000,
+              "error_message": "AssertionError\n    + expected - actual\n\n    -false\n    +true\n\n    at /Users/r.mauricio.goncalves/Documents/workspace/desafioBlu/desafio-qa/quality_assurance/features/step_definitions/list_imports.js:31:24\n    at ManagedPromise.invokeCallback_ (/Users/r.mauricio.goncalves/Documents/workspace/desafioBlu/desafio-qa/quality_assurance/node_modules/selenium-webdriver/lib/promise.js:1376:14)\n    at TaskQueue.execute_ (/Users/r.mauricio.goncalves/Documents/workspace/desafioBlu/desafio-qa/quality_assurance/node_modules/selenium-webdriver/lib/promise.js:3084:14)\n    at TaskQueue.executeNext_ (/Users/r.mauricio.goncalves/Documents/workspace/desafioBlu/desafio-qa/quality_assurance/node_modules/selenium-webdriver/lib/promise.js:3067:27)\n    at asyncRun (/Users/r.mauricio.goncalves/Documents/workspace/desafioBlu/desafio-qa/quality_assurance/node_modules/selenium-webdriver/lib/promise.js:2927:27)\n    at /Users/r.mauricio.goncalves/Documents/workspace/desafioBlu/desafio-qa/quality_assurance/node_modules/selenium-webdriver/lib/promise.js:668:7\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
             }
           },
           {
