@@ -1,23 +1,23 @@
 'use strict'
 
-// const Data = require('../quality_assurance/')
+const Data = require('./environments_parameters.json')
 
-// const TEST_ENV = process.env.TEST_ENV
-// let environmentParameters
+const TEST_ENV = process.env.TEST_ENV
+let environmentParameters
 
-// switch (TEST_ENV) {
-//   case 'localDev':
-//     environmentParameters = Data[0].localDev
-//     break
+switch (TEST_ENV) {
+  case 'localDev':
+    environmentParameters = Data[0].localDev
+    break
 
-//   case 'localQA':
-//     environmentParameters = Data[0].localQA
-//     break
-// }
+  case 'localQA':
+    environmentParameters = Data[0].localQA
+    break
+}
 
 exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-  baseUrl: 'https://desafio-qa.herokuapp.com/',
+  seleniumAddress: environmentParameters.seleniumAddress,
+  baseUrl: environmentParameters.baseUrl,
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   ignoreUncaughtExceptions: true,
@@ -60,6 +60,9 @@ exports.config = {
   },
 
   onPrepare: function () {
+    // Use only for angular applications
+    // False: app Angular
+    // True: app not Angular
     browser.ignoreSynchronization = false
   },
 
