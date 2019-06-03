@@ -2,23 +2,23 @@
 var Helper = require('../../shared_libs/helper.js')
 
 class ListImports {
-  constructor() {
+  constructor () {
     this.helper = new Helper()
     this.header = element(by.css('h1'))
     this.table = $("[class='importer-purchases-table']")
     this.elementFalse = $("[class='elementFalse']")
   }
 
-  openPage(link) {
+  openPage (link) {
     browser.get(link)
   }
 
-  getName() {
+  getName () {
     this.helper.elementIsVisible(this.table)
     return this.table
   }
 
-  getElementFalse() {
+  getElementFalse () {
     this.helper.elementIsNotPresentOfDom(this.elementFalse)
     return this.elementFalse
   }

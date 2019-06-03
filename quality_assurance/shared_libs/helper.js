@@ -4,60 +4,60 @@ var Buffer = require('safe-buffer').Buffer
 const Promise = require('bluebird')
 const moment = require('moment')
 
-var Helper = function() {}
+var Helper = function () {}
 
 // Wait to see if element is on DOM
-Helper.prototype.elementIsPresenceDom = function(element) {
+Helper.prototype.elementIsPresenceDom = function (element) {
   browser.wait(until.presenceOf(element), 25000, 'Element ' + element.getText() + ' taking too long to appear in the DOM')
-  browser.executeScript("arguments[0].scrollIntoView();", element.getWebElement())
+  browser.executeScript('arguments[0].scrollIntoView();', element.getWebElement())
 }
 
 // Wait to see if element is on DOM
-Helper.prototype.elementIsClickable = function(element) {
+Helper.prototype.elementIsClickable = function (element) {
   browser.wait(until.elementToBeClickable(element), 50000, 'Element taking too long to appear in the DOM and stay clickable')
 }
 
 // Wait to see if element is on DOM
-Helper.prototype.elementIsVisible = function(element) {
+Helper.prototype.elementIsVisible = function (element) {
   browser.wait(until.visibilityOf(element), 10000, 'Element taking too long to appear in the DOM')
 }
 
 // Wait to see if element is not attache to the DOM
-Helper.prototype.elementIsNotAttachedOnDom = function(element) {
+Helper.prototype.elementIsNotAttachedOnDom = function (element) {
   browser.wait(until.stalenessOf(element), 10000, 'Element taking too long to appear in the DOM')
 }
 
 // Wait to see if element is not present of DOM
-Helper.prototype.elementIsNotPresentOfDom = function(element) {
+Helper.prototype.elementIsNotPresentOfDom = function (element) {
   return browser.wait(until.not(until.presenceOf(element)))
 }
 
 // Force the browser to stop
-Helper.prototype.stopBrowser = function(time) {
+Helper.prototype.stopBrowser = function (time) {
   browser.sleep(time)
 }
 
 // Wait for dropdown list elements load
-Helper.prototype.waitForCount = function(elementArrayFinder, expectedCount) {
-  return function() {
-    return elementArrayFinder.count().then(function(actualCount) {
+Helper.prototype.waitForCount = function (elementArrayFinder, expectedCount) {
+  return function () {
+    return elementArrayFinder.count().then(function (actualCount) {
       return expectedCount === actualCount // or <= instead of ===, depending on the use case
     })
   }
 }
 
 // Wait for all elements the array of webelements
-Helper.prototype.presenceOfAll = function(elementArrayFinder) {
-  return function() {
-    return elementArrayFinder.count(function(count) {
+Helper.prototype.presenceOfAll = function (elementArrayFinder) {
+  return function () {
+    return elementArrayFinder.count(function (count) {
       return count > 0
     })
   }
 }
 
 // This function take a screenshot and save in directory screenshots_atual
-Helper.prototype.getScreenshot = function(nomeArquivo) {
-  function writeScreenShot(data, filename) {
+Helper.prototype.getScreenshot = function (nomeArquivo) {
+  function writeScreenShot (data, filename) {
     var stream = fs.createWriteStream(filename)
     stream.write(Buffer.from(data, 'base64'))
     stream.end()
@@ -68,12 +68,12 @@ Helper.prototype.getScreenshot = function(nomeArquivo) {
 }
 
 // This function make scrool to down on page
-Helper.prototype.scrollPageDown = function(valuePixels) {
+Helper.prototype.scrollPageDown = function (valuePixels) {
   browser.executeScript('window.scrollBy(0,' + valuePixels + ');')
 }
 
 // Check if an array is ascending ordered - V2
-Helper.prototype.stringArrayIsAscendingOrdered = function(data) {
+Helper.prototype.stringArrayIsAscendingOrdered = function (data) {
   for (let i = 0; i < data.length - 1; i++) {
     if (data[i].localeCompare(data[i + 1]) > 0) {
       return false
@@ -83,7 +83,7 @@ Helper.prototype.stringArrayIsAscendingOrdered = function(data) {
 }
 
 // Check if an array is descending ordered - V2
-Helper.prototype.stringArrayIsDescendingOrdered = function(data) {
+Helper.prototype.stringArrayIsDescendingOrdered = function (data) {
   for (let i = 0; i < data.length - 1; i++) {
     if (data[i].localeCompare(data[i + 1]) < 0) {
       return false
@@ -93,7 +93,7 @@ Helper.prototype.stringArrayIsDescendingOrdered = function(data) {
 }
 
 // Get an array of dates and a parameter date, verify if the array of date is greater then parameter date
-Helper.prototype.dateArrayIsGreaterThenParameter = function(arrayDates, DateParam){
+Helper.prototype.dateArrayIsGreaterThenParameter = function (arrayDates, DateParam) {
   let resultado = true
   let convertParamToDate = moment(DateParam, 'DD/MM/YYYY').format()
   for (let i = 0; i < arrayDates.length; i++) {
@@ -112,7 +112,7 @@ Helper.prototype.dateArrayIsGreaterThenParameter = function(arrayDates, DatePara
 }
 
 // Get an array of dates and a parameter date, verify if the array of date is less then parameter date
-Helper.prototype.dateArrayIsLessThenParameter = function(arrayDates, DateParam){
+Helper.prototype.dateArrayIsLessThenParameter = function (arrayDates, DateParam) {
   let resultado = true
   let convertParamToDate = moment(DateParam, 'DD/MM/YYYY').format()
   for (let i = 0; i < arrayDates.length; i++) {
@@ -130,7 +130,7 @@ Helper.prototype.dateArrayIsLessThenParameter = function(arrayDates, DateParam){
   return resultado
 }
 
-Helper.prototype.numberArrayIsOrdered = function(a, b) {
+Helper.prototype.numberArrayIsOrdered = function (a, b) {
   'use strict' // optional.
   // --------------------------------------------
   // a is the array input to be tested.
@@ -171,19 +171,19 @@ Helper.prototype.numberArrayIsOrdered = function(a, b) {
 }
 
 // Set token in browser
-Helper.prototype.setToken = function(jwt) {
-  return Promise.coroutine(function*() {
+Helper.prototype.setToken = function (jwt) {
+  return Promise.coroutine(function * () {
     yield browser.executeScript(`localStorage.setItem('ls.jwt-token','${jwt}')`, jwt)
   })()
 }
 
 // Get token
-Helper.prototype.getToken = function() {
+Helper.prototype.getToken = function () {
   return browser.executeScript("return window.localStorage.getItem('ls.jwt-token');")
 }
 
-Helper.prototype.hasClass = function(element, cls) {
-  return element.getAttribute('class').then(function(classes) {
+Helper.prototype.hasClass = function (element, cls) {
+  return element.getAttribute('class').then(function (classes) {
     return classes.split(' ').indexOf(cls) !== -1
   })
 }
@@ -193,8 +193,8 @@ Helper.prototype.hasClass = function(element, cls) {
 // should return true
 Helper.prototype.arrayDateIsAscendingOrdered = function (arr) {
   for (let i = 0; i < arr.length - 1; i++) {
-    let result = moment(arr[i]).isSameOrBefore(arr[i+1])
-    if(result === false) {
+    let result = moment(arr[i]).isSameOrBefore(arr[i + 1])
+    if (result === false) {
       return false
     }
   }
@@ -206,8 +206,8 @@ Helper.prototype.arrayDateIsAscendingOrdered = function (arr) {
 // should return true
 Helper.prototype.arrayDateIsDescendingOrdered = function (arr) {
   for (let i = 0; i < arr.length - 1; i++) {
-    let result = moment(arr[i]).isSameOrAfter(arr[i+1])
-    if(result === false) {
+    let result = moment(arr[i]).isSameOrAfter(arr[i + 1])
+    if (result === false) {
       return false
     }
   }
