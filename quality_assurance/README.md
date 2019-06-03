@@ -45,4 +45,4 @@ $ npm run local_test_dev
 ```
 ---
 
-<a href="https://www.linkedin.com/in/rodolfo-gonçalves-602a0a135/"target="_blank">`Linkedin`</a>
+[Linkedin](https://www.linkedin.com/in/rodolfo-gonçalves-602a0a135/)
