@@ -11,6 +11,7 @@ Este repositório contém dados sobre o desafio da Blu
 - [Pré-Requisitos](#pré-Requisitos)
 - [Instalação](#Instalação)
 - [Execução](#Execução)
+- [Contato](#Contato)
 
 ---
 
@@ -44,5 +45,7 @@ $ npm run simple_build
 $ npm run local_test_dev
 ```
 ---
+
+## Contato
 
 [Linkedin](https://www.linkedin.com/in/rodolfo-gonçalves-602a0a135/)
