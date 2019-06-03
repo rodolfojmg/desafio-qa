@@ -9,7 +9,8 @@
     "static_fix": "standard --fix",
     "start_webdriver": "webdriver-manager update && webdriver-manager start --detach --seleniumPort=4444",
     "simple_build": "cd ../quality_assurance && npm install && cd ../quality_assurance/shared_libs && npm install",
-    "local_test": "npm run simple_build && npm run test",
+    "local_test_dev": "npm run simple_build && export TEST_ENV=localDev && npm run test",
+    "local_test_qa": "npm run simple_build && export TEST_ENV=localQA && npm run test",
     "stop_webdriver": "kill -9 $(lsof -ti tcp:4444)"
   },
   "author": "Rodolfo Goncalves",
