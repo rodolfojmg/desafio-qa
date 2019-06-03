@@ -9,17 +9,25 @@ const ListImports = require('../page_objects/list_imports.js')
 const listImports = new ListImports()
 setDefaultTimeout(60 * 1000);
 
-Given('Que estou na tela de lista de importações', async function () {
-	await listImports.openPage()
+Given('que estou na tela de lista de importações', async function () {
+	browser.waitForAngularEnabled(false);
+	await listImports.openPage('/')
 });
 
-
-When('faço o calculo entre a coluna preço x qtde', function () {
-// Write code here that turns the phrase above into concrete actions
-return 'pending';
+Then('visualizo que estou na página de importações', async function () {
+	await listImports.header.getText().then(function (text) {
+		expect(text).to.equal('Lista de importações da sua loja')
+	})
 });
 
-Then('Visualizo que o valor total bruto das importações é {string}', function (string) {
-// Write code here that turns the phrase above into concrete actions
-return 'pending';
+Then('visualizo que o {string} realizou uma importação', async function (string) {
+	await listImports.getName().getText().then(function (namesTable) {
+		expect(namesTable).to.contain(string)
+	})
+});
+
+Then('não visualizo a tabla de importações', async function () {
+	await listImports.getElementFalse().isPresent().then(function (isPresent) {
+		expect(isPresent).to.equal(true)
+	})
 });
