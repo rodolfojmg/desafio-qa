@@ -1,7 +1,7 @@
 [{
   "localDev": {
     "seleniumAddress": "http://localhost:4444/wd/hub",
-    "baseUrl": "https://desafio-qa.herokuapp.com/"
+    "baseUrl": "https://desafio-qa.herokuapp.com"
   },
   "localQA": {
     "seleniumAddress": "http://localhost:4444/wd/hub",
